@@ -13,7 +13,7 @@
 * Your email address
 * E-mail address which will be used for contact form - all messages will be sent to this address. 
 */
-$your_email = 'your@email.com';
+$your_email = 'matthewdb85@gmail.com';
 
 
 /* End of file config.php */
