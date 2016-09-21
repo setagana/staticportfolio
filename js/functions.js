@@ -232,7 +232,21 @@ jQuery(document).ready(function($) {
 
    (function() {
 
-   		$('#contact-form-submit').data('original-text', $('#contact-form-submit').html() );
+   		$('#map').addClass('scrolloff');
+     
+        $('#overlay').on("mouseup",function(){
+          $('#map').addClass('scrolloff');
+        });
+     
+        $('#overlay').on("mousedown",function(){
+          $('#map').removeClass('scrolloff');
+        });
+     
+        $('#map').mouseleave(function(){
+          $('map').addClass('scrolloff');
+        });
+     
+        $('#contact-form-submit').data('original-text', $('#contact-form-submit').html() );
 
 		$('#contact-form-submit').click(function(e){
 

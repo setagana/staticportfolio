@@ -157,6 +157,9 @@ ul li:hover i[class^="icon-"] {
   background-image: -ms-linear-gradient(100 100, #a0dbe8 10%, #83b7e0 55%);
   background-image: -webkit-gradient(linear, 100 100, 200 200, color-stop(0.1, #a0dbe8), color-stop(0.55, #83b7e0));
 }
+.scrolloff {
+  pointer-events: none;
+}
 /* --------------------------------------------------------	*/
 /*	Footer */
 /* --------------------------------------------------------	*/
