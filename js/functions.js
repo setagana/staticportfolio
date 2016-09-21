@@ -243,7 +243,7 @@ jQuery(document).ready(function($) {
         });
      
         $('#map').mouseleave(function(){
-          $('map').addClass('scrolloff');
+          $('#map').addClass('scrolloff');
         });
      
         $('#contact-form-submit').data('original-text', $('#contact-form-submit').html() );
