@@ -249,45 +249,25 @@ jQuery(document).ready(function($) {
         $('#contact-form-submit').data('original-text', $('#contact-form-submit').html() );
 
 		$('#contact-form-submit').click(function(e){
-
-			var form = $('#contact-form').serialize();
-
-			$('#contact-form-submit').addClass('disabled').html('Sending ...');
-
-			setTimeout(function(){
-
-				// reset message field
-				$('#contact-form-response').hide().attr('class','alert');
-
-				// post form data using ajax
-				$.post( 'php/contact-form.php', form, 
-
-					function(response) {
-
-						// reset contact form button with original text
-						$('#contact-form-submit').removeClass('disabled').html( $('#contact-form-submit').data('original-text') );
-
-						// email was sent
-						if ( response.status == 1 ) {
-
-							message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
-							$('#contact-form-response').addClass('alert-success');
-
-						// there were errors, show them
-						} else {
-
-							message = '' + response.errors;
-							$('#contact-form-response').addClass('alert-warning');
-
-						}
-
-						// show response message
-						$('#contact-form-response').show().html(message);
-
-					}
-				,"json");
-
-			},300);
+          
+            e.preventDefault();
+            $.ajax({
+              url: 'https://formspree.io/info@matthewdebeer.com',
+              method: 'POST',
+              data: $(this).serialize(),
+              dataType: 'json',
+              beforeSend: function() {
+                $('#contact-form-submit').addClass('disabled').html('Sending ...');
+              },
+              success: function(data) {
+                message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
+                $('#contact-form-response').addClass('alert-success');
+              },
+              error: function(err) {
+                message = '' + err;
+                $('#contact-form-response').addClass('alert-warning');
+              }
+            });
 
 		})
 
