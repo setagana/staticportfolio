@@ -252,7 +252,7 @@ jQuery(document).ready(function($) {
           
             e.preventDefault();
             $.ajax({
-              url: 'https://formspree.io/matthewdb85@gmail.com',
+              url: 'https://formspree.io/info@matthewdebeer.com',
               method: 'POST',
               data: $(this).serialize(),
               dataType: 'json',
