@@ -259,10 +259,18 @@ jQuery(document).ready(function($) {
 				// reset message field
 				$('#contact-form-response').hide().attr('class','alert');
 
-				// post form data using ajax
-				$.post( 'https://formspree.io/matthewdb85@gmail.com', form, null
+                // post form data using .ajax method
+                $.ajax({
+                  url: "https://formspree.io/matthewdb85@gmail.com",
+                  method: "POST",
+                  data: form,
+                  dataType: "json"
+                });
+              
+/*				// post form data using ajax
+				$.post( 'https://formspree.io/matthewdb85@gmail.com', form,
 
-/*					function(response) {
+					function(response) {
 
 						// reset contact form button with original text
 						$('#contact-form-submit').removeClass('disabled').html( $('#contact-form-submit').data('original-text') );
@@ -284,8 +292,8 @@ jQuery(document).ready(function($) {
 						// show response message
 						$('#contact-form-response').show().html(message);
 
-					}*/
-				,"json");
+					}
+				,"json");*/
 
 			},300);
 
