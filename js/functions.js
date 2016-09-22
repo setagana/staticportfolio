@@ -269,59 +269,6 @@ jQuery(document).ready(function($) {
               }
             });
 
-/*			var formData = $('#contact-form').serializeArray()
-            var formDataObj = formData.reduce(function(obj, item) {
-              obj[item.name] = item.value;
-              return obj;
-            }, {});
-          
-            console.log(formData[2].value);
-
-			$('#contact-form-submit').addClass('disabled').html('Sending ...');
-
-			setTimeout(function(){
-
-				// reset message field
-				$('#contact-form-response').hide().attr('class','alert');
-
-                // post form data using .ajax method
-                $.ajax({
-                  url: "https://formspree.io/matthewdb85@gmail.com",
-                  method: "POST",
-                  data: {message: "test"},
-                  dataType: "json"
-                });
-              
-				// post form data using ajax
-				$.post( 'https://formspree.io/matthewdb85@gmail.com', form,
-
-					function(response) {
-
-						// reset contact form button with original text
-						$('#contact-form-submit').removeClass('disabled').html( $('#contact-form-submit').data('original-text') );
-
-						// email was sent
-						if ( response.status == 1 ) {
-
-							message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
-							$('#contact-form-response').addClass('alert-success');
-
-						// there were errors, show them
-						} else {
-
-							message = '' + response.errors;
-							$('#contact-form-response').addClass('alert-warning');
-
-						}
-
-						// show response message
-						$('#contact-form-response').show().html(message);
-
-					}
-				,"json");
-
-			},300);*/
-
 		})
 
 	})();
