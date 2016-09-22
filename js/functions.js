@@ -249,8 +249,33 @@ jQuery(document).ready(function($) {
         $('#contact-form-submit').data('original-text', $('#contact-form-submit').html() );
 
 		$('#contact-form-submit').click(function(e){
+          
+            e.preventDefault();
+            $.ajax({
+              url: 'https://formspree.io/matthewdb85@gmail.com',
+              method: 'POST',
+              data: $(this).serialize(),
+              dataType: 'json',
+              beforeSend: function() {
+                $('#contact-form-submit').addClass('disabled').html('Sending ...');
+              },
+              success: function(data) {
+                message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
+                $('#contact-form-response').addClass('alert-success');
+              },
+              error: function(err) {
+                message = '' + err;
+                $('#contact-form-response').addClass('alert-warning');
+              }
+            });
 
-			var form = $('#contact-form').serialize();
+/*			var formData = $('#contact-form').serializeArray()
+            var formDataObj = formData.reduce(function(obj, item) {
+              obj[item.name] = item.value;
+              return obj;
+            }, {});
+          
+            console.log(formData[2].value);
 
 			$('#contact-form-submit').addClass('disabled').html('Sending ...');
 
@@ -263,11 +288,11 @@ jQuery(document).ready(function($) {
                 $.ajax({
                   url: "https://formspree.io/matthewdb85@gmail.com",
                   method: "POST",
-                  data: form,
+                  data: {message: "test"},
                   dataType: "json"
                 });
               
-/*				// post form data using ajax
+				// post form data using ajax
 				$.post( 'https://formspree.io/matthewdb85@gmail.com', form,
 
 					function(response) {
@@ -293,9 +318,9 @@ jQuery(document).ready(function($) {
 						$('#contact-form-response').show().html(message);
 
 					}
-				,"json");*/
+				,"json");
 
-			},300);
+			},300);*/
 
 		})
 
