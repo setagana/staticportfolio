@@ -260,14 +260,16 @@ jQuery(document).ready(function($) {
                 $('#contact-form-submit').addClass('disabled').html('Sending ...');
               },
               success: function(data) {
+                $('#contact-form-submit').removeClass('disabled').html( $('#contact-form-submit').data('original-text') );
                 message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
                 $('#contact-form-response').addClass('alert-success');
-                $('#contact-form-response').show().html(message);
+                $('#contact-form-response').show().removeClass('hidden').html(message);
               },
               error: function(err) {
+                $('#contact-form-submit').removeClass('disabled').html( $('#contact-form-submit').data('original-text') );
                 message = '' + err;
                 $('#contact-form-response').addClass('alert-warning');
-                $('#contact-form-response').show().html(message);
+                $('#contact-form-response').show().removeClass('hidden').html(message);
               }
             });
 
