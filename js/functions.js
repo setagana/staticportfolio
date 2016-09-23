@@ -254,7 +254,7 @@ jQuery(document).ready(function($) {
             $.ajax({
               url: 'https://formspree.io/info@matthewdebeer.com',
               method: 'POST',
-              data: $(this).serialize(),
+              data: $('#contact-form').serialize(),
               dataType: 'json',
               beforeSend: function() {
                 $('#contact-form-submit').addClass('disabled').html('Sending ...');
