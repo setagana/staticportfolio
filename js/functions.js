@@ -262,10 +262,12 @@ jQuery(document).ready(function($) {
               success: function(data) {
                 message = '<i class="icon-ok"></i> <b>Thank You!</b> <br />Thanks for leaving your message. We will get back to you soon.';
                 $('#contact-form-response').addClass('alert-success');
+                $('#contact-form-response').show().html(message);
               },
               error: function(err) {
                 message = '' + err;
                 $('#contact-form-response').addClass('alert-warning');
+                $('#contact-form-response').show().html(message);
               }
             });
 
