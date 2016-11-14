@@ -372,6 +372,6 @@ jQuery(document).ready(function($) {
 		})
 
 	})();
-
-
+  
+  
 })
